@@ -6,4 +6,4 @@ from sklearn.metrics import accuracy_score
 
 #loading the dataset to a pandas DataFrame
 sonar_data = pd.read_csv('sonar rock vs mine\sonar data.csv', header=None)
-#print(sonar_data.head())
+print(sonar_data.head())
