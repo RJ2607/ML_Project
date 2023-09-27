@@ -20,3 +20,30 @@ scaler.fit(X)
 standardized_data = scaler.transform(X)
 
 X = standardized_data
+
+X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.2,stratify=Y,random_state=2)
+
+classifier = svm.SVC(kernel='linear')
+
+classifier.fit(X_train, Y_train)
+
+X_train_accuracy = classifier.predict(X_train)
+accuracy_test = accuracy_score(X_train_accuracy, Y_train)
+
+X_test_accuracy = classifier.predict(X_test)
+accuracy_test = accuracy_score(X_test_accuracy, Y_test)
+
+#print("accuracy on test data: ",accuracy_test)
+
+input_data = (7,187,68,39,304,37.7,0.254,41)
+input_data_as_numpy_array = np.asarray(input_data)
+
+input_data_reshape = input_data_as_numpy_array.reshape(1,-1)
+scaler.fit(input_data_reshape)
+input_data_reshape = scaler.transform(input_data_reshape)
+prediction = classifier.predict(input_data_reshape)
+
+if (prediction[0] == 0):
+    print("The person is not diabetic")
+else:
+    print("The person is diabetic")
