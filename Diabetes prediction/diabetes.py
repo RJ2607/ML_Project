@@ -35,12 +35,18 @@ accuracy_test = accuracy_score(X_test_accuracy, Y_test)
 
 #print("accuracy on test data: ",accuracy_test)
 
+#predictive system
+#input data
 input_data = (7,187,68,39,304,37.7,0.254,41)
 input_data_as_numpy_array = np.asarray(input_data)
-
+ #reshape numpy array
 input_data_reshape = input_data_as_numpy_array.reshape(1,-1)
+
+#standardize the input data
 scaler.fit(input_data_reshape)
 input_data_reshape = scaler.transform(input_data_reshape)
+
+#prediction
 prediction = classifier.predict(input_data_reshape)
 
 if (prediction[0] == 0):
