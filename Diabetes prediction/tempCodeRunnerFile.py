@@ -1,1 +1,3 @@
-input_data = (7,187,68,39,304,37.7,0.254,41)
+
+    elif(i==3):
+        a = input("Enter SkinThickness: ")
